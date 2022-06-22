@@ -1,0 +1,17 @@
+﻿<Window x:Class="Demos3Q5_C08_UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="100" Width="300">
+    <StackPanel Name="stack1">
+        <!-- Partagent la même méthode pour l'événement Click -->
+        <Button Content="Essai" Background="Gold" Click="btTest_Click"/>
+        <Button Name="btTest" Content="Test">
+            <Button.Style>
+                <Style>
+                    <Setter Property="Button.Background" Value="Gold" />
+                    <EventSetter Event="Button.Click" Handler="btTest_Click" />
+                </Style>
+            </Button.Style>
+        </Button>
+    </StackPanel>
+</Window>

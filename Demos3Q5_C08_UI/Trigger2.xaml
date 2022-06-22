@@ -1,0 +1,17 @@
+﻿<Window x:Class="Demos3Q5_C08_UI.Trigger2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Trigger2" Height="100" Width="300">
+    <Window.Resources>
+        <Style x:Key="effetTB">
+            <Style.Triggers>
+                <Trigger Property="TextBox.Text" Value="Marco">
+                    <Setter Property="TextBox.Background" Value="Red"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <StackPanel>
+        <TextBox FontSize="32" Name="tbNom" Text="Adam" Style="{StaticResource effetTB}"/>
+    </StackPanel>
+</Window>

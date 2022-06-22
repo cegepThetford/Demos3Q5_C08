@@ -1,0 +1,30 @@
+﻿<Window x:Class="Demos3Q5_C08_UI.DeclencheurConvertisseur"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Demos3Q5_C08_UI"
+        mc:Ignorable="d"
+        Title="DeclencheurConvertisseur" Height="150" Width="300">
+    <Window.Resources>
+        <local:ConvertissaurEtatPression x:Key="ConvEtatPression"/>
+        <Style TargetType="{x:Type ProgressBar}">
+            <Setter Property="Foreground" Value="Green" />
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding PressionCourante,Converter={StaticResource ConvEtatPression}}" Value="0">
+                    <Setter Property="Foreground" Value="Green" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding PressionCourante,Converter={StaticResource ConvEtatPression}}" Value="1">
+                    <Setter Property="Foreground" Value="Yellow" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding PressionCourante,Converter={StaticResource ConvEtatPression}}" Value="2">
+                    <Setter Property="Foreground" Value="Red" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <StackPanel>
+        <ProgressBar Name="pbPression" Minimum="0" Maximum="100" Value="{Binding PressionCourante}" Height="20"/>
+        <Slider Name="sldPression" Minimum="0" Maximum="100" Value="{Binding PressionCourante}"/>
+    </StackPanel>
+</Window>

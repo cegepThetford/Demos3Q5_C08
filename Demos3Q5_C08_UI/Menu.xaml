@@ -1,0 +1,30 @@
+﻿<Window x:Class="Demos3Q5_C08_UI.Menu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Demos3Q5_C08_UI"
+        mc:Ignorable="d"
+        Title="Menu" SizeToContent="Height" Width="250">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <EventSetter Event="Click" Handler="TraiterOuverture_Click"/>
+        </Style>
+    </Window.Resources>
+    <StackPanel>
+        <Button>MainWindow</Button>
+        <Button>Demo2</Button>
+        <Button>Demo3</Button>
+        <Button>DataTemplate1</Button>
+        <Button>DataTemplate1b</Button>
+        <Button>DataTemplate2</Button>
+        <Button>Trigger1</Button>
+        <Button>Trigger2</Button>
+        <Button>Trigger3</Button>
+        <Button>MultiTriggers</Button>
+        <Button>MultiTriggers2</Button>
+        <Button>DeclencheurConvertisseur</Button>
+        <Button>ItemTemplate</Button>
+        <!--<Button>SelecteurModele</Button>-->
+    </StackPanel>
+</Window>
