@@ -1,0 +1,34 @@
+﻿<Window x:Class="Demos3Q5_C08_UI.SelecteurModele"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:Demos3Q5_C08_UI"
+        Title="SelecteurModele" Height="300" Width="300">
+    <Window.Resources>
+        <DataTemplate x:Key="premierTemplate">
+            <TextBlock>
+                <TextBlock Text="{Binding Nom}" />
+                (age:<TextBlock Text="{Binding Age}" />)
+            </TextBlock>
+        </DataTemplate>
+
+        <!-- Define a named DataTemplate -->
+        <DataTemplate x:Key="secondTemplate">
+            <TextBlock>
+                <TextBlock Text="{Binding Age}" />
+                (name:<TextBlock Text="{Binding Nom}" />)
+            </TextBlock>
+        </DataTemplate>
+
+        <!-- Select the template based on the code behind -->
+        <local:SelecteurMembre x:Key="templateSelector"
+            PremierTemplate="{StaticResource premierTemplate}"
+            SecondTemplate="{StaticResource secondTemplate}" />
+
+    </Window.Resources>
+    <StackPanel Name="panneau">
+        <Button Height="50" Width="200" Content="{Binding Path=Membre1}" ContentTemplateSelector="{StaticResource templateSelector}"/>
+        <Button Height="50" Width="200" Content="{Binding Path=Membre2}" ContentTemplateSelector="{StaticResource templateSelector}"/>
+        <Button Height="50" Width="200" Content="{Binding Path=Membre3}" ContentTemplateSelector="{StaticResource templateSelector}"/>
+        <Label Height="75" Width="120" Content="{Binding Path=Membre1}" BorderBrush="Orange" BorderThickness="2" FontSize="10"/>
+    </StackPanel>
+</Window>

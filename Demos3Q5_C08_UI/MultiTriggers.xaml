@@ -1,0 +1,25 @@
+﻿<Window x:Class="Demos3Q5_C08_UI.MultiTriggers"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MultiTriggers" Height="100" Width="300">
+    <Window.Resources>
+        <Style x:Key="multi">
+            <Style.Triggers>
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding ElementName=cbox1,Path=IsChecked}" Value="True"/>
+                        <Condition Binding="{Binding ElementName=cbox2,Path=IsChecked}" Value="True"/>
+                    </MultiDataTrigger.Conditions>
+                    <MultiDataTrigger.Setters>
+                        <Setter Property="Button.Background" Value="Red"/>
+                    </MultiDataTrigger.Setters>
+                </MultiDataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <StackPanel>
+        <CheckBox Name="cbox1" Content="Je confirme avoir lu les termes du contrat"/>
+        <CheckBox Name="cbox2" Content="J'accepte les termes du contrat"/>
+        <Button Name="suivant" Content="Suivant" Style="{StaticResource multi}"/>
+    </StackPanel>
+</Window>

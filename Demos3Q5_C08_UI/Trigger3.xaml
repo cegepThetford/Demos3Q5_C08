@@ -1,0 +1,34 @@
+﻿<Window x:Class="Demos3Q5_C08_UI.Trigger3"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Trigger3" Height="150" Width="300">
+    <Window.Resources>
+        <Style x:Key="parExemple">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ElementName=tbChaine , Path=Text}" Value="abracadabra">
+                    <Setter Property="Label.Background" Value="Red"/>
+                    <Setter Property="Label.Foreground" Value="White"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="parExemple2">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ElementName=tbChaine , Path=Text}" Value="abracadabra">
+                    <Setter Property="Button.Visibility" Value="Hidden"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <StackPanel x:Name="stack1">
+        <TextBox x:Name="tbChaine"
+                 Width="200"
+                 Height="25"
+                 />
+        <Button Content="XYZ" Style="{StaticResource parExemple2}"/>
+        <Label x:Name="label"
+               Content="Bonjour!"
+               Style="{StaticResource parExemple}"
+               />
+    </StackPanel>
+</Window>
+
